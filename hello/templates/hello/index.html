@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>山田家の掲示板</title>
+</head>
+<body>
+    <header>
+        <center><h1><img src="{% static "hello\img\cooltext.jpg"%}"></a></h1></center>
+    </header>
+    <h1>{{title}}</h1>
+    <div align="right"><a href="{% url 'create' %}">自分も投稿する</a></div>
+    <hr>
+    <p>近況をみんなとシェアしてみよう</p>
+    <table>
+       <tr>
+            <th>NAME</th>
+            <th>TITLE</th>
+            <th>TEXT</th>
+        </tr>
+    {% for item in data %}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.text}}</td>
+        <tr>
+    {% endfor %}
+    </table>
+</body>
+</html>
